@@ -1,0 +1,27 @@
+<!--
+THIS FILE IS GENERATED.
+Run: python scripts/build_site_content.py
+-->
+```{=html}
+<div class="ProjectsBlock ProjectsBlock--single">
+<section class="ProjectsBlock_content">
+```
+
+```{=html}
+<div class="project-featuredStack">
+```
+
+{{< project_card href="projects/vox-populi-valasztas-2026.html" title="Vox Populi: Választás 2026" pinned="false" variant="fullwidth" thumb_src="assets/project_thumbs/vox-populi-valasztas-2026.png" meta="2025-26 • 2026-03-14" org="Vox Populi" excerpt="The website shows the polling aggregation and mandate projection made by the Vox Populi blog by Gábor Tóka for the 2026 elections." tags="data visualization|vox populi|website" >}}
+
+{{< project_card href="projects/444-election-needle-2021.html" title="Predictive election needle" pinned="false" variant="fullwidth" thumb_src="assets/project_thumbs/444-election-needle-2021.png" meta="2021 • 2021-10-17" org="444.hu" excerpt="An election needle that narrowed down the possible outcomes during the night of the opposition primaries." tags="444|data visualization" >}}
+
+```{=html}
+</div>
+```
+
+```{=html}
+</section>
+```
+```{=html}
+</div>
+```

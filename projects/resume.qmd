@@ -3,42 +3,39 @@ title: "Resume & Contact"
 format: html
 ---
 
-# Your Name
+## Profile
 
-**Data Scientist • Machine Learning • Visualization**
+Data and Society BA student at CEU working at the intersection of election data, public communication, and web product development. I build data-heavy websites and explain complex political trends through clear visual interfaces.
 
-- Email: your.email@example.com
-- LinkedIn: https://www.linkedin.com/in/your-profile
-- GitHub: https://github.com/your-username
+## Education
 
-## Summary
-
-Short 2–3 sentence summary about your focus, strengths, and the roles you're seeking.
+- **Central European University (CEU)** - Data and Society BA (ongoing)
+- Relevant focus: applied statistics, social data analysis, and political behavior research
 
 ## Skills
 
-- Python, pandas, scikit-learn, PyTorch
-- Data visualization: plotly, matplotlib, seaborn
-- SQL, Docker, cloud basics
+- **Programming / data**: Python, pandas, SQL
+- **Visualization**: Plotly, dashboard-focused storytelling
+- **Web / delivery**: Quarto, static site workflows, Shiny (Python)
+- **Domain**: polling aggregation, election-night estimation, public-facing analytics
 
-## Experience / Projects
+## Selected Projects
 
-- Project A — short bullet point summary
-- Project B — short bullet point summary
+- [Vox Populi: Választás 2026](vox-populi-valasztas-2026.qmd) - polling aggregation and mandate projection for the 2026 elections.
+- [Vox Populi: US 2024](vox-populi-us2024.qmd) - US election polling aggregation interface.
+- [Predictive election needle (444)](444-election-needle-2021.qmd) - real-time narrowing of probable outcomes during opposition primaries.
+- [TestVot 2025](testvot-2025.qmd) - vote advice application for Romanian elections.
 
-## Contact / Hire Me
+## Thesis Direction
 
-If you'd like to reach me directly, send an email or use the form below (Formspree example):
+Planned thesis topic: low-data election-night estimation during vote count processing for the 2026 election cycle, with potential public write-ups on the Vox Populi blog.
 
-<form action="https://formspree.io/f/your-form-id" method="POST">
-  <label for="name">Name</label><br>
-  <input type="text" id="name" name="name" required><br>
-  <label for="email">Email</label><br>
-  <input type="email" id="email" name="email" required><br>
-  <label for="message">Message</label><br>
-  <textarea id="message" name="message" rows="4" required></textarea><br>
-  <button type="submit">Send</button>
-</form>
+## Languages
 
-Notes:
-- Replace `https://formspree.io/f/your-form-id` with your Formspree form endpoint or another form backend.
+- Hungarian (native)
+- English (professional)
+
+## Contact
+
+- GitHub: https://github.com/hidegmisi/
+- LinkedIn: https://www.linkedin.com/in/mihaly-hideg

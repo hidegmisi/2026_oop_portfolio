@@ -1,0 +1,36 @@
+<!--
+THIS FILE IS GENERATED.
+Run: python scripts/build_site_content.py
+-->
+```{=html}
+<div class="ProjectsBlock">
+<section class="ProjectsBlock_content">
+```
+
+```{=html}
+<div class="project-grid">
+```
+
+{{< project_card href="vox-populi-valasztas-2026.html" title="Vox Populi: Választás 2026" pinned="true" variant="grid" thumb_src="../assets/project_thumbs/vox-populi-valasztas-2026.png" meta="2025-26 • 2026-03-14" org="Vox Populi" excerpt="The website shows the polling aggregation and mandate projection made by the Vox Populi blog by Gábor Tóka for the 2026 elections." tags="data visualization|vox populi|website" >}}
+
+{{< project_card href="444-election-needle-2021.html" title="Predictive election needle" pinned="true" variant="grid" thumb_src="../assets/project_thumbs/444-election-needle-2021.png" meta="2021 • 2021-10-17" org="444.hu" excerpt="An election needle that narrowed down the possible outcomes during the night of the opposition primaries." tags="444|data visualization" >}}
+
+{{< project_card href="testvot-2025.html" title="TestVot 2025" pinned="false" variant="grid" thumb_src="../assets/project_thumbs/testvot-2025.png" meta="2024-25 • 2024-11-15" org="Median Research Centre" excerpt="A voting advice application for Romanian elections, based on Česko.Digital’s volebni-kalkulacka." tags="website" >}}
+
+{{< project_card href="vox-populi-us2024.html" title="Vox Populi: US 2024" pinned="false" variant="grid" thumb_src="../assets/project_thumbs/vox-populi-us2024.png" meta="2024 • 2024-09-17" org="Vox Populi" excerpt="An aggregator of the main polling aggregators for the 2024 US elections by the Vox Populi blog." tags="data visualization|vox populi|website" >}}
+
+{{< project_card href="teatrom.html" title="TeatRom Website" pinned="false" variant="grid" thumb_src="../assets/project_thumbs/teatrom.png" meta="2024 • 2024-09-14" org="Utcaszínházi Alkotóközösség" excerpt="The website of the TeatRom festival organized by the Utcaszínházi Alkotóközösség for Roma children living in one of the most beautiful and impoverished areas of Northern Hungary, in the Cserehát region. It is no longer maintained by me." tags="website" >}}
+
+{{< project_card href="crimealliance.html" title="CPCJ Alliance website" pinned="false" variant="grid" thumb_src="../assets/project_thumbs/crimealliance.png" meta="2019- • 2019-12-13" org="Alliance of NGOs on Crime Prevention and Criminal Justice" excerpt="A website for an NGO umbrella organization advancing a crime prevention and criminal justice agenda." tags="website" >}}
+
+```{=html}
+</div>
+```
+
+```{=html}
+</section>
+```
+{{< tags_panel tags="website:5|data visualization:3|vox populi:2|444:1" >}}
+```{=html}
+</div>
+```

@@ -3,8 +3,6 @@ title: "Data Explorer - Iris Dataset"
 format: html
 ---
 
-# Data Explorer - Iris Dataset
-
 An interactive web application built with Shiny for exploring and visualizing the Iris dataset. This app allows you to filter data by species and view correlations between sepal and petal measurements.
 
 ## Preview

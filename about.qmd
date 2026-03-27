@@ -3,11 +3,31 @@ title: "About"
 format: html
 ---
 
-# About Me
+## Introduction
 
-Short bio, skills, contact info, and a link to your resume.
+{{< include includes/about_intro.qmd >}}
 
-- **Skills:** Python, pandas, scikit-learn, SQL, data visualization
-- **Contact:** your.email@example.com
+## Current Work
 
-Upload a `resume.pdf` to the repo root and link it here when ready.
+- Election-focused visualizations and polling aggregation products.
+- Web interfaces that make complex analysis accessible to non-technical audiences.
+- Reproducible content pipelines using Python and Quarto.
+
+## Studies and Focus Areas
+
+- **CEU - Data and Society (BA)**: quantitative social science, data analysis, and research design.
+- **Thematic focus**: voting behavior, mandate estimation, and polling quality.
+- **Technical focus**: Python, pandas, SQL, Quarto, and web data visualization.
+
+## Selected Work
+
+- [Vox Populi: US 2024 tracker](projects/vox-populi-us2024.qmd)
+- [Vox Populi: Választás 2026](projects/vox-populi-valasztas-2026.qmd)
+- [Predictive election needle (444)](projects/444-election-needle-2021.qmd)
+- [TestVot 2025](projects/testvot-2025.qmd)
+
+## Links
+
+- [Projects](projects/index.qmd)
+- [GitHub](https://github.com/hidegmisi/)
+- [LinkedIn](https://www.linkedin.com/in/mihaly-hideg)

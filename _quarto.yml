@@ -1,9 +1,13 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "projects/**/*.qmd"
+    - "AGENTS.md"
 
 website:
-  title: "Student Data Science Portfolio"
+  title: "Mihály Hideg"
   navbar:
     left:
       - text: "Home"
@@ -14,8 +18,19 @@ website:
         href: projects/resume.qmd
       - text: "About"
         href: about.qmd
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/mihaly-hideg
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/hidegmisi/
+        aria-label: GitHub
 
 format:
   html:
     theme: cosmo
-    css: assets/styles.css
+    css:
+      - assets/styles.css
+      - assets/components/projects.css
+      - assets/components/project-detail.css
+    title-block-style: none

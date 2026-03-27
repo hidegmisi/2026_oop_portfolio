@@ -3,18 +3,16 @@ title: "Home"
 format: html
 ---
 
-# Hi — I'm a Data Science Student
+## Featured Projects
 
-Welcome to my portfolio. Below are featured projects and an interactive data demo.
+Election-focused products and data stories I have built over the last years.
 
-## Featured Project
+{{< include projects/_generated_pinned_projects.qmd >}}
 
-- Project: Predictive modeling of housing prices — see details in the Projects section.
+## About
 
-## Interactive Demo
+I am a Data and Society undergraduate at CEU with a focus on election analysis, web development, and public-facing data visualization.
 
-Run the sample Shiny app locally and open:
+My current direction combines polling aggregation, voting behavior, and election-night nowcasting workflows.
 
-- http://127.0.0.1:8000 (Shiny app)
-
-You can embed the running app using an iframe in a hosted environment.
+[Read the full profile on the About page](about.qmd).
