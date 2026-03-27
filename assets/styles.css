@@ -3,11 +3,49 @@
   --accent:#ff7a59;  /* coral */
   --bg:#ffffff;
   --muted:#6b7280;
+  --surface:#ffffff;
+  --border:rgba(17,24,39,0.10);
+  --shadow:0 1px 16px rgba(16,24,40,0.10);
 }
 body{
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: #111827;
   background: var(--bg);
+  line-height: 1.55;
+}
+
+main.content{
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: .75rem;
+}
+
+/* Hide Quarto's automatic page title block (we keep titles in navbar/meta). */
+header#title-block-header,
+.quarto-title-block{
+  display: none !important;
+}
+
+/* Navbar: make it clean/light */
+header#quarto-header nav.navbar{
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+header#quarto-header nav.navbar .navbar-brand,
+header#quarto-header nav.navbar .nav-link{
+  color: #0f172a !important;
+}
+header#quarto-header nav.navbar .nav-link:hover{
+  color: var(--primary) !important;
+}
+
+/* Headings */
+h1,h2,h3{
+  letter-spacing: -0.02em;
+}
+h2{
+  margin-top: 1.25rem;
 }
 header.site-title{
   color: var(--primary);

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Mihály Hideg</title>
+<title>agents – Mihály Hideg</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -105,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -133,52 +168,115 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">About</h1></header>
-
-<header id="title-block-header">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-</header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>I am a Data and Society undergraduate student at CEU, and I also work in web development with a strong interest in data visualization. My election-related projects include Vox Populi’s 2024 US polling aggregator and a vote advice application for the 2025 Romanian elections. My thesis will focus on low-coverage election-night estimation during the 2026 vote count, and I may also write about it on the Vox Populi blog.</p>
-</section>
-<section id="current-work" class="level2">
-<h2 class="anchored" data-anchor-id="current-work">Current Work</h2>
+<section id="agents.md" class="level1">
+<h1>AGENTS.md</h1>
+<p>This repository is a <strong>Quarto</strong> website for an <strong>Object-Oriented Programming (OOP)</strong> course portfolio. The primary grading focus is the <strong>quality of your OOP design and maintainability</strong>, not visual polish.</p>
+<section id="repo-structure" class="level2">
+<h2 class="anchored" data-anchor-id="repo-structure">Repo structure</h2>
 <ul>
-<li>Election-focused visualizations and polling aggregation products.</li>
-<li>Web interfaces that make complex analysis accessible to non-technical audiences.</li>
-<li>Reproducible content pipelines using Python and Quarto.</li>
+<li><strong><code>_quarto.yml</code></strong>: Quarto website configuration (navbar, theme, CSS).</li>
+<li><strong><code>index.qmd</code></strong>: Home page.</li>
+<li><strong><code>projects/</code></strong>: Project pages and generated project listing.
+<ul>
+<li><strong><code>projects/_generated_projects.qmd</code></strong>: Generated project grid (do not edit by hand).</li>
+<li><strong><code>projects/_generated_pinned_projects.qmd</code></strong>: Generated pinned projects block.</li>
+</ul></li>
+<li><strong><code>data/projects.csv</code></strong>: Source-of-truth project data.</li>
+<li><strong><code>assets/project_thumbs/</code></strong>: Project thumbnail images.</li>
+<li><strong><code>portfolio_content/</code></strong>: OO content pipeline package.
+<ul>
+<li><strong><code>models.py</code></strong>: Domain model (<code>Project</code>).</li>
+<li><strong><code>csv_row_parser.py</code></strong>: CSV row parsing + field validation.</li>
+<li><strong><code>repository.py</code></strong>: CSV loading/filtering/sorting.</li>
+<li><strong><code>specs.py</code></strong>: Typed immutable render specs.</li>
+<li><strong><code>viewmodels.py</code></strong>: <code>Project</code> -&gt; viewmodel mapping.</li>
+<li><strong><code>renderers.py</code></strong>: Quarto/HTML rendering.</li>
+<li><strong><code>text_utils.py</code></strong>: Shared formatting utilities.</li>
+</ul></li>
+<li><strong><code>scripts/build_site_content.py</code></strong>: Build orchestration via <code>SiteContentBuilder</code>.</li>
 </ul>
 </section>
-<section id="studies-and-focus-areas" class="level2">
-<h2 class="anchored" data-anchor-id="studies-and-focus-areas">Studies and Focus Areas</h2>
+<section id="content-workflow-how-to-update-projects" class="level2">
+<h2 class="anchored" data-anchor-id="content-workflow-how-to-update-projects">Content workflow (how to update projects)</h2>
+<ol type="1">
+<li><strong>Edit data</strong> in <code>data/projects.csv</code>.</li>
+<li><strong>Add thumbnails</strong> to <code>assets/project_thumbs/</code>.
 <ul>
-<li><strong>CEU - Data and Society (BA)</strong>: quantitative social science, data analysis, and research design.</li>
-<li><strong>Thematic focus</strong>: voting behavior, mandate estimation, and polling quality.</li>
-<li><strong>Technical focus</strong>: Python, pandas, SQL, Quarto, and web data visualization.</li>
+<li><strong>Convention</strong>: thumbnail file name is the project slug:
+<ul>
+<li><code>assets/project_thumbs/&lt;slug&gt;.png</code> (default)</li>
+<li>If the CSV <code>Thumbnail</code> column contains a filename with a different extension (e.g.&nbsp;<code>.jpg</code>), the generator uses that extension for the slug file.</li>
+</ul></li>
+<li>Therefore: you only need to ensure <code>assets/project_thumbs/&lt;slug&gt;.&lt;ext&gt;</code> exists.</li>
+</ul></li>
+<li>Regenerate the partial:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/build_site_content.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Preview the site (see “Local dev server” below).</li>
+</ol>
+</section>
+<section id="oop-standards-what-were-demonstrating" class="level2">
+<h2 class="anchored" data-anchor-id="oop-standards-what-were-demonstrating">OOP standards (what we’re demonstrating)</h2>
+<ul>
+<li><strong>Single Responsibility Principle (SRP)</strong>: keep parsing, sorting, and rendering in separate classes/modules.</li>
+<li><strong>Typed domain model</strong>: <code>Project</code> is the central data model; avoid passing around raw dicts.</li>
+<li><strong>Deterministic output</strong>: the generator should always produce the same output given the same inputs (stable sorting).</li>
+<li><strong>No “stringly-typed” templates</strong> scattered across <code>.qmd</code>: Quarto pages should mostly include generated partials.</li>
 </ul>
 </section>
-<section id="selected-work" class="level2">
-<h2 class="anchored" data-anchor-id="selected-work">Selected Work</h2>
+<section id="local-dev-server" class="level2">
+<h2 class="anchored" data-anchor-id="local-dev-server">Local dev server</h2>
+<p>From repo root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (Optional) regenerate generated content first</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/build_site_content.py</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Quarto live preview server</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Quarto will print a local URL (typically <code>http://localhost:xxxx</code>) and auto-reload on changes.</p>
+</section>
+<section id="baseline-verification-loop-run-beforeafter-changes" class="level2">
+<h2 class="anchored" data-anchor-id="baseline-verification-loop-run-beforeafter-changes">Baseline verification loop (run before/after changes)</h2>
+<p>From repo root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regenerate generated content (partials + per-project pages)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/build_site_content.py</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Render site to _site/</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run unit tests for pipeline boundaries</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="visual-spot-check-fast" class="level3">
+<h3 class="anchored" data-anchor-id="visual-spot-check-fast">Visual spot-check (fast)</h3>
 <ul>
-<li><a href="./projects/vox-populi-us2024.html">Vox Populi: US 2024 tracker</a></li>
-<li><a href="./projects/vox-populi-valasztas-2026.html">Vox Populi: Választás 2026</a></li>
-<li><a href="./projects/444-election-needle-2021.html">Predictive election needle (444)</a></li>
-<li><a href="./projects/testvot-2025.html">TestVot 2025</a></li>
+<li><strong>Home</strong>: <code>index.qmd</code> → Featured Projects section is clean and not broken.</li>
+<li><strong>Projects listing</strong>: <code>projects/index.qmd</code> → featured card + tags panel + grid layout looks correct.</li>
+<li><strong>One project detail page</strong>: <code>projects/&lt;slug&gt;.qmd</code> (e.g.&nbsp;<code>projects/vox-populi-us2024.qmd</code>) → header renders, external link works, optional body include doesn’t error if missing.</li>
 </ul>
 </section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
-<ul>
-<li><a href="./projects/index.html">Projects</a></li>
-<li><a href="https://github.com/hidegmisi/">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/mihaly-hideg">LinkedIn</a></li>
-</ul>
+</section>
+<section id="shiny-app-optional" class="level2">
+<h2 class="anchored" data-anchor-id="shiny-app-optional">Shiny app (optional)</h2>
+<p>The example Shiny app lives in <code>projects/data/app.py</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> projects/data</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">shiny</span> run app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="deployment-github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-github-pages">Deployment (GitHub Pages)</h2>
+<p>Preferred: publish with Quarto’s built-in GitHub Pages publishing.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># one-time setup may be required in GitHub repo settings</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This publishes the rendered site to the <code>gh-pages</code> branch and configures Pages to serve it.</p>
+<p>If you prefer a manual flow, you can render locally and push the output branch, but avoid committing <code>_site/</code> unless your chosen workflow explicitly requires it.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -1,121 +1,268 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "AGENTS.html",
+    "href": "AGENTS.html",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "About Me\nShort bio, skills, contact info, and a link to your resume.\n\nSkills: Python, pandas, scikit-learn, SQL, data visualization\nContact: your.email@example.com\n\nUpload a resume.pdf to the repo root and link it here when ready."
+    "text": "This repository is a Quarto website for an Object-Oriented Programming (OOP) course portfolio. The primary grading focus is the quality of your OOP design and maintainability, not visual polish.\n\n\n\n_quarto.yml: Quarto website configuration (navbar, theme, CSS).\nindex.qmd: Home page.\nprojects/: Project pages and generated project listing.\n\nprojects/_generated_projects.qmd: Generated project grid (do not edit by hand).\nprojects/_generated_pinned_projects.qmd: Generated pinned projects block.\n\ndata/projects.csv: Source-of-truth project data.\nassets/project_thumbs/: Project thumbnail images.\nportfolio_content/: OO content pipeline package.\n\nmodels.py: Domain model (Project).\ncsv_row_parser.py: CSV row parsing + field validation.\nrepository.py: CSV loading/filtering/sorting.\nspecs.py: Typed immutable render specs.\nviewmodels.py: Project -&gt; viewmodel mapping.\nrenderers.py: Quarto/HTML rendering.\ntext_utils.py: Shared formatting utilities.\n\nscripts/build_site_content.py: Build orchestration via SiteContentBuilder.\n\n\n\n\n\nEdit data in data/projects.csv.\nAdd thumbnails to assets/project_thumbs/.\n\nConvention: thumbnail file name is the project slug:\n\nassets/project_thumbs/&lt;slug&gt;.png (default)\nIf the CSV Thumbnail column contains a filename with a different extension (e.g. .jpg), the generator uses that extension for the slug file.\n\nTherefore: you only need to ensure assets/project_thumbs/&lt;slug&gt;.&lt;ext&gt; exists.\n\nRegenerate the partial:\n\npython scripts/build_site_content.py\n\nPreview the site (see “Local dev server” below).\n\n\n\n\n\nSingle Responsibility Principle (SRP): keep parsing, sorting, and rendering in separate classes/modules.\nTyped domain model: Project is the central data model; avoid passing around raw dicts.\nDeterministic output: the generator should always produce the same output given the same inputs (stable sorting).\nNo “stringly-typed” templates scattered across .qmd: Quarto pages should mostly include generated partials.\n\n\n\n\nFrom repo root:\n# (Optional) regenerate generated content first\npython scripts/build_site_content.py\n\n# Start Quarto live preview server\nquarto preview\nQuarto will print a local URL (typically http://localhost:xxxx) and auto-reload on changes.\n\n\n\nFrom repo root:\n# Regenerate generated content (partials + per-project pages)\npython scripts/build_site_content.py\n\n# Render site to _site/\nquarto render\n\n# Run unit tests for pipeline boundaries\npytest\n\n\n\nHome: index.qmd → Featured Projects section is clean and not broken.\nProjects listing: projects/index.qmd → featured card + tags panel + grid layout looks correct.\nOne project detail page: projects/&lt;slug&gt;.qmd (e.g. projects/vox-populi-us2024.qmd) → header renders, external link works, optional body include doesn’t error if missing.\n\n\n\n\n\nThe example Shiny app lives in projects/data/app.py.\npip install -r requirements.txt\ncd projects/data\nshiny run app.py\n\n\n\nPreferred: publish with Quarto’s built-in GitHub Pages publishing.\n# one-time setup may be required in GitHub repo settings\nquarto publish gh-pages\nThis publishes the rendered site to the gh-pages branch and configures Pages to serve it.\nIf you prefer a manual flow, you can render locally and push the output branch, but avoid committing _site/ unless your chosen workflow explicitly requires it."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "AGENTS.html#repo-structure",
+    "href": "AGENTS.html#repo-structure",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "A selection of data science projects showcasing different techniques and technologies.\n\n\nAn interactive web application built with Shiny for exploring and visualizing the Iris dataset.\n\n\n\nIris Data Visualization\n\n\nThis project demonstrates object-oriented Python design patterns applied to a real-world data visualization application. It uses Shiny for interactivity and Plotly for dynamic visualizations.\nView Project Details →"
+    "text": "_quarto.yml: Quarto website configuration (navbar, theme, CSS).\nindex.qmd: Home page.\nprojects/: Project pages and generated project listing.\n\nprojects/_generated_projects.qmd: Generated project grid (do not edit by hand).\nprojects/_generated_pinned_projects.qmd: Generated pinned projects block.\n\ndata/projects.csv: Source-of-truth project data.\nassets/project_thumbs/: Project thumbnail images.\nportfolio_content/: OO content pipeline package.\n\nmodels.py: Domain model (Project).\ncsv_row_parser.py: CSV row parsing + field validation.\nrepository.py: CSV loading/filtering/sorting.\nspecs.py: Typed immutable render specs.\nviewmodels.py: Project -&gt; viewmodel mapping.\nrenderers.py: Quarto/HTML rendering.\ntext_utils.py: Shared formatting utilities.\n\nscripts/build_site_content.py: Build orchestration via SiteContentBuilder."
   },
   {
-    "objectID": "projects/resume.html",
-    "href": "projects/resume.html",
-    "title": "Resume & Contact",
+    "objectID": "AGENTS.html#content-workflow-how-to-update-projects",
+    "href": "AGENTS.html#content-workflow-how-to-update-projects",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "Data Scientist • Machine Learning • Visualization\n\nEmail: your.email@example.com\nLinkedIn: https://www.linkedin.com/in/your-profile\nGitHub: https://github.com/your-username\n\n\n\nShort 2–3 sentence summary about your focus, strengths, and the roles you’re seeking.\n\n\n\n\nPython, pandas, scikit-learn, PyTorch\nData visualization: plotly, matplotlib, seaborn\nSQL, Docker, cloud basics\n\n\n\n\n\nProject A — short bullet point summary\nProject B — short bullet point summary\n\n\n\n\nIf you’d like to reach me directly, send an email or use the form below (Formspree example):\n\nName  Email  Message\n\n Send\n\nNotes: - Replace https://formspree.io/f/your-form-id with your Formspree form endpoint or another form backend."
+    "text": "Edit data in data/projects.csv.\nAdd thumbnails to assets/project_thumbs/.\n\nConvention: thumbnail file name is the project slug:\n\nassets/project_thumbs/&lt;slug&gt;.png (default)\nIf the CSV Thumbnail column contains a filename with a different extension (e.g. .jpg), the generator uses that extension for the slug file.\n\nTherefore: you only need to ensure assets/project_thumbs/&lt;slug&gt;.&lt;ext&gt; exists.\n\nRegenerate the partial:\n\npython scripts/build_site_content.py\n\nPreview the site (see “Local dev server” below)."
   },
   {
-    "objectID": "projects/resume.html#summary",
-    "href": "projects/resume.html#summary",
-    "title": "Resume & Contact",
+    "objectID": "AGENTS.html#oop-standards-what-were-demonstrating",
+    "href": "AGENTS.html#oop-standards-what-were-demonstrating",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "Short 2–3 sentence summary about your focus, strengths, and the roles you’re seeking."
+    "text": "Single Responsibility Principle (SRP): keep parsing, sorting, and rendering in separate classes/modules.\nTyped domain model: Project is the central data model; avoid passing around raw dicts.\nDeterministic output: the generator should always produce the same output given the same inputs (stable sorting).\nNo “stringly-typed” templates scattered across .qmd: Quarto pages should mostly include generated partials."
   },
   {
-    "objectID": "projects/resume.html#skills",
-    "href": "projects/resume.html#skills",
-    "title": "Resume & Contact",
+    "objectID": "AGENTS.html#local-dev-server",
+    "href": "AGENTS.html#local-dev-server",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "Python, pandas, scikit-learn, PyTorch\nData visualization: plotly, matplotlib, seaborn\nSQL, Docker, cloud basics"
+    "text": "From repo root:\n# (Optional) regenerate generated content first\npython scripts/build_site_content.py\n\n# Start Quarto live preview server\nquarto preview\nQuarto will print a local URL (typically http://localhost:xxxx) and auto-reload on changes."
   },
   {
-    "objectID": "projects/resume.html#experience-projects",
-    "href": "projects/resume.html#experience-projects",
-    "title": "Resume & Contact",
+    "objectID": "AGENTS.html#baseline-verification-loop-run-beforeafter-changes",
+    "href": "AGENTS.html#baseline-verification-loop-run-beforeafter-changes",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "Project A — short bullet point summary\nProject B — short bullet point summary"
+    "text": "From repo root:\n# Regenerate generated content (partials + per-project pages)\npython scripts/build_site_content.py\n\n# Render site to _site/\nquarto render\n\n# Run unit tests for pipeline boundaries\npytest\n\n\n\nHome: index.qmd → Featured Projects section is clean and not broken.\nProjects listing: projects/index.qmd → featured card + tags panel + grid layout looks correct.\nOne project detail page: projects/&lt;slug&gt;.qmd (e.g. projects/vox-populi-us2024.qmd) → header renders, external link works, optional body include doesn’t error if missing."
   },
   {
-    "objectID": "projects/resume.html#contact-hire-me",
-    "href": "projects/resume.html#contact-hire-me",
-    "title": "Resume & Contact",
+    "objectID": "AGENTS.html#shiny-app-optional",
+    "href": "AGENTS.html#shiny-app-optional",
+    "title": "AGENTS.md",
     "section": "",
-    "text": "If you’d like to reach me directly, send an email or use the form below (Formspree example):\n\nName  Email  Message\n\n Send\n\nNotes: - Replace https://formspree.io/f/your-form-id with your Formspree form endpoint or another form backend."
+    "text": "The example Shiny app lives in projects/data/app.py.\npip install -r requirements.txt\ncd projects/data\nshiny run app.py"
+  },
+  {
+    "objectID": "AGENTS.html#deployment-github-pages",
+    "href": "AGENTS.html#deployment-github-pages",
+    "title": "AGENTS.md",
+    "section": "",
+    "text": "Preferred: publish with Quarto’s built-in GitHub Pages publishing.\n# one-time setup may be required in GitHub repo settings\nquarto publish gh-pages\nThis publishes the rendered site to the gh-pages branch and configures Pages to serve it.\nIf you prefer a manual flow, you can render locally and push the output branch, but avoid committing _site/ unless your chosen workflow explicitly requires it."
+  },
+  {
+    "objectID": "projects/vox-populi-us2024.html",
+    "href": "projects/vox-populi-us2024.html",
+    "title": "Vox Populi: US 2024",
+    "section": "",
+    "text": "Vox Populi: US 2024\n2024 • 2024-09-17\nVox Populi\n\nAn aggregator of the main polling aggregators for the 2024 US elections by the Vox Populi blog.\ndata visualization\nvox populi\nwebsite\nOpen project ↗"
+  },
+  {
+    "objectID": "projects/teatrom.html",
+    "href": "projects/teatrom.html",
+    "title": "TeatRom Website",
+    "section": "",
+    "text": "TeatRom Website\n2024 • 2024-09-14\nUtcaszínházi Alkotóközösség\n\nThe website of the TeatRom festival organized by the Utcaszínházi Alkotóközösség for Roma children living in one of the most beautiful and impoverished areas of Northern Hungary, in the Cserehát region. It is no longer maintained by me.\nwebsite\nOpen project ↗"
   },
   {
     "objectID": "projects/project1.html",
     "href": "projects/project1.html",
     "title": "Data Explorer - Iris Dataset",
     "section": "",
-    "text": "An interactive web application built with Shiny for exploring and visualizing the Iris dataset. This app allows you to filter data by species and view correlations between sepal and petal measurements.\n\n\nThe Data Explorer app provides an interactive interface for analyzing the Iris dataset:\n\n\n\nIris Data Visualization\n\n\nThis visualization shows the relationship between sepal length and petal length, colored by species. The app allows you to filter by species and view detailed measurements for each data point.\n\n\n\nInteract with the live Shiny application below:\n\n\n\n\n\nSpecies Filter: Select individual iris species or view all data\nInteractive Visualization: Hover over data points to see detailed measurements\nData Table: View the filtered dataset in a formatted table\nDynamic Updates: All visualizations update in real-time based on your selection\n\n\n\n\nTo run this application on your machine:\n# Install dependencies\npip install -r requirements.txt\n\n# Start the Shiny app\ncd projects/data\nshiny run app.py\nThen visit http://127.0.0.1:8000 in your browser.\n\n\n\nTechnology Stack: - Python 3.9 - Shiny for Python - Pandas for data manipulation - Plotly for interactive visualizations\nRepository: add links to notebooks and artifacts."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Welcome to my portfolio. Below are featured projects and an interactive data demo.\n\n\n\nProject: Predictive modeling of housing prices — see details in the Projects section.\n\n\n\n\nRun the sample Shiny app locally and open:\n\nhttp://127.0.0.1:8000 (Shiny app)\n\nYou can embed the running app using an iframe in a hosted environment."
-  },
-  {
-    "objectID": "index.html#featured-project",
-    "href": "index.html#featured-project",
-    "title": "Home",
-    "section": "",
-    "text": "Project: Predictive modeling of housing prices — see details in the Projects section."
-  },
-  {
-    "objectID": "index.html#interactive-demo",
-    "href": "index.html#interactive-demo",
-    "title": "Home",
-    "section": "",
-    "text": "Run the sample Shiny app locally and open:\n\nhttp://127.0.0.1:8000 (Shiny app)\n\nYou can embed the running app using an iframe in a hosted environment."
+    "text": "An interactive web application built with Shiny for exploring and visualizing the Iris dataset. This app allows you to filter data by species and view correlations between sepal and petal measurements."
   },
   {
     "objectID": "projects/project1.html#preview",
     "href": "projects/project1.html#preview",
     "title": "Data Explorer - Iris Dataset",
-    "section": "",
-    "text": "The Data Explorer app provides an interactive interface for analyzing the Iris dataset:\n\n\n\nIris Data Visualization\n\n\nThis visualization shows the relationship between sepal length and petal length, colored by species. The app allows you to filter by species and view detailed measurements for each data point."
+    "section": "Preview",
+    "text": "Preview\nThe Data Explorer app provides an interactive interface for analyzing the Iris dataset:\n\n\n\nIris Data Visualization\n\n\nThis visualization shows the relationship between sepal length and petal length, colored by species. The app allows you to filter by species and view detailed measurements for each data point."
   },
   {
     "objectID": "projects/project1.html#interactive-demo",
     "href": "projects/project1.html#interactive-demo",
     "title": "Data Explorer - Iris Dataset",
-    "section": "",
-    "text": "Interact with the live Shiny application below:"
+    "section": "Interactive Demo",
+    "text": "Interactive Demo\nInteract with the live Shiny application below:"
   },
   {
     "objectID": "projects/project1.html#features",
     "href": "projects/project1.html#features",
     "title": "Data Explorer - Iris Dataset",
-    "section": "",
-    "text": "Species Filter: Select individual iris species or view all data\nInteractive Visualization: Hover over data points to see detailed measurements\nData Table: View the filtered dataset in a formatted table\nDynamic Updates: All visualizations update in real-time based on your selection"
-  },
-  {
-    "objectID": "projects/project1.html#project-details",
-    "href": "projects/project1.html#project-details",
-    "title": "Data Explorer - Iris Dataset",
-    "section": "",
-    "text": "Technology Stack: - Python 3.9 - Shiny for Python - Pandas for data manipulation - Plotly for interactive visualizations\nRepository: add links to notebooks and artifacts."
+    "section": "Features",
+    "text": "Features\n\nSpecies Filter: Select individual iris species or view all data\nInteractive Visualization: Hover over data points to see detailed measurements\nData Table: View the filtered dataset in a formatted table\nDynamic Updates: All visualizations update in real-time based on your selection"
   },
   {
     "objectID": "projects/project1.html#running-the-app-locally",
     "href": "projects/project1.html#running-the-app-locally",
     "title": "Data Explorer - Iris Dataset",
-    "section": "",
-    "text": "To run this application on your machine:\n# Install dependencies\npip install -r requirements.txt\n\n# Start the Shiny app\ncd projects/data\nshiny run app.py\nThen visit http://127.0.0.1:8000 in your browser."
+    "section": "Running the App Locally",
+    "text": "Running the App Locally\nTo run this application on your machine:\n# Install dependencies\npip install -r requirements.txt\n\n# Start the Shiny app\ncd projects/data\nshiny run app.py\nThen visit http://127.0.0.1:8000 in your browser."
   },
   {
-    "objectID": "projects/index.html#data-explorer---iris-dataset",
-    "href": "projects/index.html#data-explorer---iris-dataset",
+    "objectID": "projects/project1.html#project-details",
+    "href": "projects/project1.html#project-details",
+    "title": "Data Explorer - Iris Dataset",
+    "section": "Project Details",
+    "text": "Project Details\nTechnology Stack: - Python 3.9 - Shiny for Python - Pandas for data manipulation - Plotly for interactive visualizations\nRepository: add links to notebooks and artifacts."
+  },
+  {
+    "objectID": "projects/crimealliance.html",
+    "href": "projects/crimealliance.html",
+    "title": "CPCJ Alliance website",
+    "section": "",
+    "text": "CPCJ Alliance website\n2019- • 2019-12-13\nAlliance of NGOs on Crime Prevention and Criminal Justice\n\nA website for an NGO umbrella organization advancing a crime prevention and criminal justice agenda.\nwebsite\nOpen project ↗"
+  },
+  {
+    "objectID": "projects/bodies/444-election-needle-2021.html",
+    "href": "projects/bodies/444-election-needle-2021.html",
+    "title": "Mihály Hideg",
+    "section": "",
+    "text": "This project was built as an election-night “needle” for 444.hu during the 2021 opposition primary runoff, designed to answer one question in real time: who is likely to win by the end of the count. Instead of waiting for complete results, the display projected the probable final margin from partial returns and showed that estimate in a single, easy-to-read indicator. That framing made a fast-moving vote count understandable for a broad audience.\nThe original article text explains the model logic in plain language. The central value under the needle represented the currently expected end-of-day lead, while the colored ranges on both sides showed the still-plausible outcomes based on counted and uncounted areas. Importantly, the article notes that this interval could widen early and then narrow as more districts reported, which communicates uncertainty as a normal part of live forecasting rather than as an error.\nAs a communication product, the needle balances statistical projection with editorial clarity. Readers get a continuously updated estimate, but they also get a transparent explanation of what can still change and why. For election coverage, that combination is valuable: it reduces confusion in volatile moments and demonstrates how data visualization can improve public understanding of incomplete results."
+  },
+  {
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
+    "title": "Home",
+    "section": "Featured Projects",
+    "text": "Featured Projects\nElection-focused products and data stories I have built over the last years.\n\n\n\n\n\n\n\n\nVox Populi: Választás 2026\n2025-26 • 2026-03-14\nVox Populi\n\nThe website shows the polling aggregation and mandate projection made by the Vox Populi blog by Gábor Tóka for the 2026 elections.\ndata visualization\nvox populi\nwebsite\n\n\n\n\n\n\nPredictive election needle\n2021 • 2021-10-17\n444.hu\n\nAn election needle that narrowed down the possible outcomes during the night of the opposition primaries.\n444\ndata visualization"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Home",
+    "section": "About",
+    "text": "About\nI am a Data and Society undergraduate at CEU with a focus on election analysis, web development, and public-facing data visualization.\nMy current direction combines polling aggregation, voting behavior, and election-night nowcasting workflows.\nRead the full profile on the About page."
+  },
+  {
+    "objectID": "about.html#introduction",
+    "href": "about.html#introduction",
+    "title": "About",
+    "section": "Introduction",
+    "text": "Introduction\nI am a Data and Society undergraduate student at CEU, and I also work in web development with a strong interest in data visualization. My election-related projects include Vox Populi’s 2024 US polling aggregator and a vote advice application for the 2025 Romanian elections. My thesis will focus on low-coverage election-night estimation during the 2026 vote count, and I may also write about it on the Vox Populi blog."
+  },
+  {
+    "objectID": "about.html#current-work",
+    "href": "about.html#current-work",
+    "title": "About",
+    "section": "Current Work",
+    "text": "Current Work\n\nElection-focused visualizations and polling aggregation products.\nWeb interfaces that make complex analysis accessible to non-technical audiences.\nReproducible content pipelines using Python and Quarto."
+  },
+  {
+    "objectID": "about.html#studies-and-focus-areas",
+    "href": "about.html#studies-and-focus-areas",
+    "title": "About",
+    "section": "Studies and Focus Areas",
+    "text": "Studies and Focus Areas\n\nCEU - Data and Society (BA): quantitative social science, data analysis, and research design.\nThematic focus: voting behavior, mandate estimation, and polling quality.\nTechnical focus: Python, pandas, SQL, Quarto, and web data visualization."
+  },
+  {
+    "objectID": "about.html#selected-work",
+    "href": "about.html#selected-work",
+    "title": "About",
+    "section": "Selected Work",
+    "text": "Selected Work\n\nVox Populi: US 2024 tracker\nVox Populi: Választás 2026\nPredictive election needle (444)\nTestVot 2025"
+  },
+  {
+    "objectID": "about.html#links",
+    "href": "about.html#links",
+    "title": "About",
+    "section": "Links",
+    "text": "Links\n\nProjects\nGitHub\nLinkedIn"
+  },
+  {
+    "objectID": "includes/about_intro.html",
+    "href": "includes/about_intro.html",
+    "title": "Mihály Hideg",
+    "section": "",
+    "text": "I am a Data and Society undergraduate student at CEU, and I also work in web development with a strong interest in data visualization. My election-related projects include Vox Populi’s 2024 US polling aggregator and a vote advice application for the 2025 Romanian elections. My thesis will focus on low-coverage election-night estimation during the 2026 vote count, and I may also write about it on the Vox Populi blog."
+  },
+  {
+    "objectID": "projects/444-election-needle-2021.html",
+    "href": "projects/444-election-needle-2021.html",
+    "title": "Predictive election needle",
+    "section": "",
+    "text": "Predictive election needle\n2021 • 2021-10-17\n444.hu\n\nAn election needle that narrowed down the possible outcomes during the night of the opposition primaries.\n444\ndata visualization\nOpen project ↗\n\n\n\nThis project was built as an election-night “needle” for 444.hu during the 2021 opposition primary runoff, designed to answer one question in real time: who is likely to win by the end of the count. Instead of waiting for complete results, the display projected the probable final margin from partial returns and showed that estimate in a single, easy-to-read indicator. That framing made a fast-moving vote count understandable for a broad audience.\nThe original article text explains the model logic in plain language. The central value under the needle represented the currently expected end-of-day lead, while the colored ranges on both sides showed the still-plausible outcomes based on counted and uncounted areas. Importantly, the article notes that this interval could widen early and then narrow as more districts reported, which communicates uncertainty as a normal part of live forecasting rather than as an error.\nAs a communication product, the needle balances statistical projection with editorial clarity. Readers get a continuously updated estimate, but they also get a transparent explanation of what can still change and why. For election coverage, that combination is valuable: it reduces confusion in volatile moments and demonstrates how data visualization can improve public understanding of incomplete results."
+  },
+  {
+    "objectID": "projects/bodies/vox-populi-valasztas-2026.html",
+    "href": "projects/bodies/vox-populi-valasztas-2026.html",
+    "title": "Mihály Hideg",
+    "section": "",
+    "text": "This project is a live election-tracking website for Hungary’s 2026 parliamentary race, centered on the head-to-head between Fidesz and Tisza. The landing view combines a “latest figures” panel with time-series charts, so visitors can immediately compare the most recent polling numbers with longer-term movement. A key strength is that the page does not only report point estimates: it also explains where the numbers come from and how they are grouped.\nThe methodology section is unusually transparent for a public-facing political dashboard. The site distinguishes between government-aligned and independent polling institutes, publishes links to raw polling data, and describes how weighted moving averages are used in different components. This makes the visualization more than a scoreboard: it is also a documented analytical pipeline that helps readers understand uncertainty and potential sources of bias.\nBeyond vote-share trends, the website translates polling into projected parliamentary seats and presents those results in a second forecasting layer. It also breaks out smaller parties, provides embeddable/shareable modules, and links to longer methodological write-ups on the Vox Populi platform. Together, these elements turn the project into a practical decision-support tool for election observers who need both quick snapshots and deeper context."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "An interactive web application built with Shiny for exploring and visualizing the Iris dataset.\n\n\n\nIris Data Visualization\n\n\nThis project demonstrates object-oriented Python design patterns applied to a real-world data visualization application. It uses Shiny for interactivity and Plotly for dynamic visualizations.\nView Project Details →"
+    "text": "A selection of projects across data visualization and web applications.\n\n\n\n\n\n\n\n\nPinned\nVox Populi: Választás 2026\n2025-26 • 2026-03-14\nVox Populi\n\nThe website shows the polling aggregation and mandate projection made by the Vox Populi blog by Gábor Tóka for the 2026 elections.\ndata visualization\nvox populi\nwebsite\n\n\n\n\n\n\nPinned\nPredictive election needle\n2021 • 2021-10-17\n444.hu\n\nAn election needle that narrowed down the possible outcomes during the night of the opposition primaries.\n444\ndata visualization\n\n\n\n\n\n\nTestVot 2025\n2024-25 • 2024-11-15\nMedian Research Centre\n\nA voting advice application for Romanian elections, based on Česko.Digital’s volebni-kalkulacka.\nwebsite\n\n\n\n\n\n\nVox Populi: US 2024\n2024 • 2024-09-17\nVox Populi\n\nAn aggregator of the main polling aggregators for the 2024 US elections by the Vox Populi blog.\ndata visualization\nvox populi\nwebsite\n\n\n\n\n\n\nTeatRom Website\n2024 • 2024-09-14\nUtcaszínházi Alkotóközösség\n\nThe website of the TeatRom festival organized by the Utcaszínházi Alkotóközösség for Roma children living in one of the most beautiful and impoverished areas of Northern Hungary, in the Cserehát region. It is no longer maintained by me.\nwebsite\n\n\n\n\n\n\nCPCJ Alliance website\n2019- • 2019-12-13\nAlliance of NGOs on Crime Prevention and Criminal Justice\n\nA website for an NGO umbrella organization advancing a crime prevention and criminal justice agenda.\nwebsite\n\n\n\n\n\nTags\nwebsite5\ndata visualization3\nvox populi2\n4441"
+  },
+  {
+    "objectID": "projects/resume.html#profile",
+    "href": "projects/resume.html#profile",
+    "title": "Resume & Contact",
+    "section": "Profile",
+    "text": "Profile\nData and Society BA student at CEU working at the intersection of election data, public communication, and web product development. I build data-heavy websites and explain complex political trends through clear visual interfaces."
+  },
+  {
+    "objectID": "projects/resume.html#education",
+    "href": "projects/resume.html#education",
+    "title": "Resume & Contact",
+    "section": "Education",
+    "text": "Education\n\nCentral European University (CEU) - Data and Society BA (ongoing)\nRelevant focus: applied statistics, social data analysis, and political behavior research"
+  },
+  {
+    "objectID": "projects/resume.html#skills",
+    "href": "projects/resume.html#skills",
+    "title": "Resume & Contact",
+    "section": "Skills",
+    "text": "Skills\n\nProgramming / data: Python, pandas, SQL\nVisualization: Plotly, dashboard-focused storytelling\nWeb / delivery: Quarto, static site workflows, Shiny (Python)\nDomain: polling aggregation, election-night estimation, public-facing analytics"
+  },
+  {
+    "objectID": "projects/resume.html#selected-projects",
+    "href": "projects/resume.html#selected-projects",
+    "title": "Resume & Contact",
+    "section": "Selected Projects",
+    "text": "Selected Projects\n\nVox Populi: Választás 2026 - polling aggregation and mandate projection for the 2026 elections.\nVox Populi: US 2024 - US election polling aggregation interface.\nPredictive election needle (444) - real-time narrowing of probable outcomes during opposition primaries.\nTestVot 2025 - vote advice application for Romanian elections."
+  },
+  {
+    "objectID": "projects/resume.html#thesis-direction",
+    "href": "projects/resume.html#thesis-direction",
+    "title": "Resume & Contact",
+    "section": "Thesis Direction",
+    "text": "Thesis Direction\nPlanned thesis topic: low-data election-night estimation during vote count processing for the 2026 election cycle, with potential public write-ups on the Vox Populi blog."
+  },
+  {
+    "objectID": "projects/resume.html#languages",
+    "href": "projects/resume.html#languages",
+    "title": "Resume & Contact",
+    "section": "Languages",
+    "text": "Languages\n\nHungarian (native)\nEnglish (professional)"
+  },
+  {
+    "objectID": "projects/resume.html#contact",
+    "href": "projects/resume.html#contact",
+    "title": "Resume & Contact",
+    "section": "Contact",
+    "text": "Contact\n\nGitHub: https://github.com/hidegmisi/\nLinkedIn: https://www.linkedin.com/in/mihaly-hideg"
+  },
+  {
+    "objectID": "projects/testvot-2025.html",
+    "href": "projects/testvot-2025.html",
+    "title": "TestVot 2025",
+    "section": "",
+    "text": "TestVot 2025\n2024-25 • 2024-11-15\nMedian Research Centre\n\nA voting advice application for Romanian elections, based on Česko.Digital’s volebni-kalkulacka.\nwebsite\nOpen project ↗"
+  },
+  {
+    "objectID": "projects/vox-populi-valasztas-2026.html",
+    "href": "projects/vox-populi-valasztas-2026.html",
+    "title": "Vox Populi: Választás 2026",
+    "section": "",
+    "text": "Vox Populi: Választás 2026\n2025-26 • 2026-03-14\nVox Populi\n\nThe website shows the polling aggregation and mandate projection made by the Vox Populi blog by Gábor Tóka for the 2026 elections.\ndata visualization\nvox populi\nwebsite\nOpen project ↗\n\n\n\nThis project is a live election-tracking website for Hungary’s 2026 parliamentary race, centered on the head-to-head between Fidesz and Tisza. The landing view combines a “latest figures” panel with time-series charts, so visitors can immediately compare the most recent polling numbers with longer-term movement. A key strength is that the page does not only report point estimates: it also explains where the numbers come from and how they are grouped.\nThe methodology section is unusually transparent for a public-facing political dashboard. The site distinguishes between government-aligned and independent polling institutes, publishes links to raw polling data, and describes how weighted moving averages are used in different components. This makes the visualization more than a scoreboard: it is also a documented analytical pipeline that helps readers understand uncertainty and potential sources of bias.\nBeyond vote-share trends, the website translates polling into projected parliamentary seats and presents those results in a second forecasting layer. It also breaks out smaller parties, provides embeddable/shareable modules, and links to longer methodological write-ups on the Vox Populi platform. Together, these elements turn the project into a practical decision-support tool for election observers who need both quick snapshots and deeper context."
   }
 ]
